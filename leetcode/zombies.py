@@ -4,10 +4,10 @@ zombie_chart = [
  [0, 0, 0, 0, 0,],
  [0, 0, 0, 0, 0,]]
 
+
 # make a queue of zombie locations
 # apply moves to subsequent locations and add those zombies to the queue
 # get zombie count
-
 def main():
     TIME_TILL_DOOM = 0
     ZOMBIE_QUEUE = []
@@ -39,24 +39,23 @@ def infect(zombie_chart, row, col):
     # Check Left
     newly_infected_zombies = []
 
-
     if (col > 0):
         if not is_zombie(zombie_chart, row, col-1):
             zombie_chart[row][col-1] = 1
             newly_infected_zombies.append([row, col-1])
 
     # Check Right
-    if (col < (len(zombie_chart[0])-1)):
+    if col < (len(zombie_chart[0])-1):
         if not is_zombie(zombie_chart, row, col+1):
             zombie_chart[row][col+1] = 1
             newly_infected_zombies.append([row, col+1])
     # Check Up
-    if (row > 0):
+    if row > 0:
         if not is_zombie(zombie_chart, row-1, col):
             zombie_chart[row-1][col] = 1
             newly_infected_zombies.append([row-1, col])
     # Check Down
-    if (row < len(zombie_chart) -1):
+    if row < len(zombie_chart) -1:
         if not is_zombie(zombie_chart, row+1, col):
             zombie_chart[row+1][col] = 1
             newly_infected_zombies.append([row+1, col])
@@ -65,11 +64,12 @@ def infect(zombie_chart, row, col):
 
 
 def is_zombie(zombie_chart, x, y):
-    if(zombie_chart[x][y]):
+    if zombie_chart[x][y]:
         return 1
     else:
         return 0
-    
+
+
 # Get Location of all current zombies
 def get_all_zombie_locations(zombie_chart):
     current_zombies = []
@@ -81,11 +81,13 @@ def get_all_zombie_locations(zombie_chart):
                 current_zombies.append([row_index, col_index])
     return current_zombies
 
+
 def beautify(zombie_chart):
     for row in zombie_chart:
         print(row)
 
     print("\n")
+
 
 if __name__ == '__main__':
     main()
