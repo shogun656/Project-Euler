@@ -1,3 +1,6 @@
+# For question https://leetcode.com/discuss/interview-question/411357/
+
+
 zombie_chart = [
  [1, 0, 0, 0, 0,],
  [0, 0, 0, 0, 0,],
